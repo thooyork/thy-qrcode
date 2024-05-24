@@ -1,7 +1,7 @@
 {
   "name": "thy-qrcode",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "dist/thy-qrcode.js",
   "types": "dist/thy-qrcode.d.ts",
@@ -20,13 +20,14 @@
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.9.1"
   },
+  "license": "MIT",
   "keywords": [
     "qrcode",
     "webcomponent",
-    "typescript",
     "wifi qr",
     "text qr",
     "qr code generator",
+    "typescript",
     "javascript",
     "lit",
     "vite"

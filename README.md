@@ -51,12 +51,12 @@ npm install thy-qrcode
 The following attributes are available:
 | attribute name | type | default value | info |
 | --- | --- | --- | --- |
-| ``` type ``` | ``` text | wifi ``` | ```text```| |
+| ``` type ``` | ``` text\|wifi ``` | ```text```| |
 | ``` value ``` | ``` string ``` | ```"Input some text"```| only relevant if type="text" |
 | ``` width ``` | ``` number ``` | ``` 225 ```| width in px |
 | ``` color ``` | ``` string ``` | ``` #333333 ```| foreground-color of qrcode (RGB Hex-string) |
 | ``` background-color ``` | ``` string ``` | ``` #FFFFFF ```| background-color of qrcode (RGB Hex-string) |
-| ``` hint ``` | ``` string | null ``` | ``` null ```| text underneath QR code |
+| ``` hint ``` | ``` string\|null ``` | ``` null ```| text underneath QR code |
 | ``` hide-inputs ``` | ``` boolean ``` | ``` false ```| hide all input elements |
 
 ## Demo (or it didn't happen)
