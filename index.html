@@ -1,14 +1,21 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/qrcode.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ThyQrcode - QR Code Generator Web Component</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="./src/thy-qrcode.ts"></script>
-  </head>
-  <body>
-    <thy-qrcode type="wifi"></thy-qrcode>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/qrcode.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThyQrcode - QR Code Generator Web Component</title>
+  <link rel="stylesheet" href="./src/index.css" />
+  <script type="module" src="./src/thy-qrcode.ts"></script>
+</head>
+
+<body>
+  <div style="width:100%; display:flex; flex-direction: row; align-content: space-around;">
+    <thy-qrcode hint="click QR code to download"></thy-qrcode>
+    <thy-qrcode hint="click QR code to download" type="wifi" background-color="#acf2e2" color="#9440ad"></thy-qrcode>
+    <thy-qrcode hint="click QR code to download" type="wifi"></thy-qrcode>
+  </div>
+</body>
+
 </html>
