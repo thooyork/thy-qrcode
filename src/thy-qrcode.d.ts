@@ -6,6 +6,7 @@ export declare class ThyQrcode extends LitElement {
     backgroundColor: string;
     type: "text" | "wifi";
     hint: string | null;
+    hideInputs: boolean;
     private elCanvas;
     private ssid;
     private password;
