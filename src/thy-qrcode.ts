@@ -25,6 +25,9 @@ export class ThyQrcode extends LitElement {
   @property()
   hint: string | null = null;
 
+  @property({ type: Boolean, attribute: 'hide-inputs' })
+  hideInputs = false;
+
 
   private elCanvas: HTMLCanvasElement | null = null;
 
@@ -40,16 +43,16 @@ export class ThyQrcode extends LitElement {
     <div style="width: ${this.width}px">
       <canvas id="canvas" class="cnvs" @click=${() => { this.download() }}></canvas>
       <div class="${this.hint ? 'hint' : 'hidden'}">${this.hint}</div>
-      <input type="text" value=${this.value} @input=${(e: any) => { this.value = e.target.value; this.generateQR(this.value) }} />
+      <input class="${!this.hideInputs ? '' : 'hidden'}" type="text" value=${this.value} @input=${(e: any) => { this.value = e.target.value; this.generateQR(this.value) }} />
     </div>`;
 
     const wifiDomQr = html`
     <div style="width: ${this.width}px">
       <canvas id="canvas" class="cnvs" @click=${() => { this.download() }}></canvas>
       <div class="${this.hint ? 'hint' : 'hidden'}">${this.hint}</div>
-      <input type="text" name="ssid" placeholder="SSID" value=${this.ssid} @input=${(e: any) => { this.ssid = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }} />
-      <input type="text" name="password" placeholder="PASSPHRASE" value=${this.password} @input=${(e: any) => { this.password = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }} />
-      <select name="auth" @change=${(e: any) => { this.auth = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }}>
+      <input class="${!this.hideInputs ? '' : 'hidden'}" type="text" name="ssid" placeholder="SSID" value=${this.ssid} @input=${(e: any) => { this.ssid = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }} />
+      <input class="${!this.hideInputs ? '' : 'hidden'}" type="text" name="password" placeholder="PASSPHRASE" value=${this.password} @input=${(e: any) => { this.password = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }} />
+      <select class="${!this.hideInputs ? '' : 'hidden'}" name="auth" @change=${(e: any) => { this.auth = e.target.value; this.value = `WIFI:T:${this.auth};S:${this.ssid};P:${this.password};;`; this.generateQR(this.value) }}>
         <option value="WEP">WEP</option>
         <option value="WPA" selected>WPA</option>
         <option value="WPA2-EAP">WPA2-EAP</option>
@@ -107,6 +110,9 @@ export class ThyQrcode extends LitElement {
     justify-content: center;
     margin: 0 auto;
   }
+  .hidden {
+    display: none!important;
+  }
   h2 {
     color: #CCC;
     font-size: 16px;
@@ -114,10 +120,13 @@ export class ThyQrcode extends LitElement {
     font-family: sans-serif;
   }
   .cnvs {
+    display:block;
     width: 100%;
     height: auto;
     aspect-ratio: 1/1;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
   }
   .hint {
     width:100%;
@@ -130,9 +139,6 @@ export class ThyQrcode extends LitElement {
     font-family: monospace;
     overflow-x: hidden;
     text-overflow: ellipsis;
-  }
-  .hidden {
-    display: none;
   }
   input[type=text] {
     display:flex;

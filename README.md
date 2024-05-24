@@ -1,7 +1,7 @@
 # ThyQrcode
 
 This is a web component to generate QR-Codes. It supports two types ("text" and "wifi") that can be 
-set via the type-attribute. It then renders the inputs accordingly.
+set via the type-attribute. It then renders the inputs accordingly. Supports unicode emojis 😀.
 
 ![Screenshot](https://smart-sign.com/npm/thy-qrcode/screenshot.png)
 
@@ -14,8 +14,13 @@ set via the type-attribute. It then renders the inputs accordingly.
 ## Examples
 ```
     <thy-qrcode></thy-qrcode> // default type is "text"
+
+    <thy-qrcode hide-inputs></thy-qrcode>
+
     <thy-qrcode width="300" hint="click QR code to download"></thy-qrcode>
+
     <thy-qrcode hint="click QR code to download" type="wifi" background-color="#acf2e2" color="#9440ad"></thy-qrcode>
+
     <thy-qrcode type="wifi"></thy-qrcode>
 ```
 
@@ -52,6 +57,7 @@ The following attributes are available:
 | ``` color ``` | ``` string ``` | ``` #333333 ```| foreground-color of qrcode (RGB Hex-string) |
 | ``` background-color ``` | ``` string ``` | ``` #FFFFFF ```| background-color of qrcode (RGB Hex-string) |
 | ``` hint ``` | ``` string | null ``` | ``` null ```| text underneath QR code |
+| ``` hide-inputs ``` | ``` boolean ``` | ``` false ```| hide all input elements |
 
 ## Demo (or it didn't happen)
 [VISIT DEMO SITE](https://smart-sign.com/npm/thy-qrcode/)
